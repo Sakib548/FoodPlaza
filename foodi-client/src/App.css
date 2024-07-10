@@ -21,3 +21,9 @@ header {
 .heartStar {
   border-radius: 0px 37.5px 0px 42.5px;
 }
+
+.active {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  color: #39db4a;
+}
