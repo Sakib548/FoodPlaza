@@ -64,6 +64,13 @@ const Signup = () => {
               Login
             </button>
           </p>
+          <button
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            htmlFor="my_modal_5"
+            onClick={() => document.getElementById("my_modal_5").close()}
+          >
+            ✕
+          </button>
         </form>
         {/* social sign in */}
         <div className="text-center space-x-3 mb-5">
