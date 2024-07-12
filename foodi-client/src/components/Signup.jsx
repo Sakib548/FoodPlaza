@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
 import Modal from "./Modal";
 const Signup = () => {
   const {
@@ -64,13 +66,12 @@ const Signup = () => {
               Login
             </button>
           </p>
-          <button
+          <Link
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            htmlFor="my_modal_5"
-            onClick={() => document.getElementById("my_modal_5").close()}
+            to="/"
           >
             ✕
-          </button>
+          </Link>
         </form>
         {/* social sign in */}
         <div className="text-center space-x-3 mb-5">
