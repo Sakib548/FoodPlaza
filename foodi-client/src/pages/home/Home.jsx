@@ -1,19 +1,20 @@
-import Banner from "../../components/Banner";
-import Categories from "./Categories";
-import OurServices from "./OurServices";
-import Special_Dishes from "./Special_Dishes";
-import Testimonials from "./Testimonials";
+import React from 'react'
+import Banner from '../../components/Banner'
+import Catagories from './Catagories'
+import SpecialDishes from './SpecialDishes'
+import Testimonials from './Testimonials'
+import OurServices from './OurServices'
 
 const Home = () => {
   return (
     <div>
-      <Banner />
-      <Categories />
-      <Special_Dishes />
-      <Testimonials />
-      <OurServices />
+       <Banner/>
+       <Catagories/>
+       <SpecialDishes/>
+       <Testimonials/>
+       <OurServices/>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
