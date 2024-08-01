@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Modal = () => {
   const {
@@ -10,7 +11,20 @@ const Modal = () => {
     watch,
     formState: { errors },
   } = useForm();
+
+  const { signUpWithGmail } = useContext(AuthContext);
   const onSubmit = (data) => console.log(data);
+
+  //google siginin
+
+  const handleLogin = () => {
+    signUpWithGmail()
+      .then((result) => {
+        const user = result.user;
+        alert("Login Successful");
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
@@ -75,7 +89,10 @@ const Modal = () => {
           </form>
           {/* social sign in */}
           <div className="text-center space-x-3 mb-5">
-            <button className="btn btn-circle hover:bg-green hover:text-white">
+            <button
+              className="btn btn-circle hover:bg-green hover:text-white"
+              onClick={handleLogin}
+            >
               {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
