@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
+import { AuthContext } from "../contexts/AuthProvider";
 import Modal from "./Modal";
 const Signup = () => {
   const {
@@ -10,7 +12,21 @@ const Signup = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    createUser(email, password)
+      .then((result) => {
+        // Signed up
+        const user = result.user;
+        alert("Account creation successfully done");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
+  const { login, createUser } = useContext(AuthContext);
   return (
     <div className="max-w-md bg-white shadow w-full mx-auto flex items-center justify-center">
       <div className="modal-action flex flex-col justify-center mt-0">

@@ -21,17 +21,8 @@ const AuthProvider = ({ children }) => {
   //create an account
   console.log("dsdsd", app);
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
-    // .then((userCredential) => {
-    //   // Signed up
-    //   const user = userCredential.user;
-    //   // ...
-    // })
-    // .catch((error) => {
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // ..
-    // });
   };
 
   // signup with gmail
@@ -69,7 +60,7 @@ const AuthProvider = ({ children }) => {
         // https://firebase.google.com/docs/reference/js/auth.user
         setUser(currentUser);
         setLoading(false);
-        const uid = user.uid;
+        //const uid = user.uid;
         // ...
       } else {
         // User is signed out
@@ -86,6 +77,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signUpWithGmail,
     updateuserProfile,
+    login,
   };
 
   return (
