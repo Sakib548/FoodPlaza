@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaRegUser } from "react-icons/fa6";
+import { FaRegUser } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthProvider";
 import Modal from "./Modal";
 import Profile from "./Profile";
@@ -152,12 +152,10 @@ const Navbar = () => {
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </label>
-          {/* login button */}
 
+          {/* login btn */}
           {user ? (
-            <>
-              <Profile user={user} />
-            </>
+            <Profile user={user} />
           ) : (
             <button
               onClick={() => document.getElementById("my_modal_5").showModal()}

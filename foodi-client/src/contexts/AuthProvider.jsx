@@ -16,7 +16,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   //create an account
   console.log("dsdsd", app);
@@ -78,6 +78,7 @@ const AuthProvider = ({ children }) => {
     signUpWithGmail,
     updateuserProfile,
     login,
+    loading,
   };
 
   return (
