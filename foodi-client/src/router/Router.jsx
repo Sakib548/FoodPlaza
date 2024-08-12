@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import CartPage from "../components/shop/CartPage";
+import Signup from "../components/Signup";
 import Main from "../layout/Main";
+import UpdateProfile from "../pages/dashboard/UpdateProfile";
 import Home from "../pages/home/Home";
 import Menu from "../pages/shop/Menu";
-import Signup from "../components/Signup";
-import UpdateProfile from "../pages/dashboard/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -16,18 +17,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/menu",
-        element: <Menu/>,
+        element: <Menu />,
+      },
+      {
+        path: "/cart-page",
+        element: <CartPage />,
       },
       {
         path: "/update-profile",
-        element: <UpdateProfile/>
-      }
+        element: <UpdateProfile />,
+      },
     ],
   },
   {
     path: "/signup",
-    element: <Signup/>
-  }
+    element: <Signup />,
+  },
 ]);
 
 export default router;
