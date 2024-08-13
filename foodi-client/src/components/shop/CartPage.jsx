@@ -12,7 +12,7 @@ const CartPage = () => {
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead>
+            <thead className="bg-green text-white rounded-sm">
               <tr>
                 <th>#</th>
                 <th>Food</th>
@@ -25,11 +25,7 @@ const CartPage = () => {
             <tbody>
               {/* row 1 */}
               <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
+                <td>1</td>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">

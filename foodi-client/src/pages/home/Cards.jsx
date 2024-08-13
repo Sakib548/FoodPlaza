@@ -9,6 +9,12 @@ const Cards = ({ item }) => {
   const handleHeartClick = () => {
     setIsHeartFilled(!isHeartFilled);
   };
+
+  ///add to cart
+  const handleAddtoCart = () => {
+    console.log("Clicked");
+  };
+
   return (
     <div
       to={`/menu/${item._id}`}
@@ -40,7 +46,9 @@ const Cards = ({ item }) => {
           <h5 className="font-semibold">
             <span className="text-sm text-red">$ </span> {item.price}
           </h5>
-          <button className="btn bg-green text-white">Add to Cart </button>
+          <button className="btn bg-green text-white" onClick={handleAddtoCart}>
+            Add to Ca
+          </button>
         </div>
       </div>
     </div>
