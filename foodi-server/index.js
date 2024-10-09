@@ -1,4 +1,6 @@
 const express = require("express");
+const { ObjectId } = require("mongodb");
+
 const app = express();
 const cors = require("cors");
 const port = process.env.PORT || 6001;
@@ -49,6 +51,31 @@ async function run() {
     app.post("/carts", async (req, res) => {
       const cartItem = req.body;
       const result = await cartCollections.insertOne(cartItem);
+      res.send(result);
+    });
+
+    //get carts using email
+    app.get("/carts", async (req, res) => {
+      const email = req.query.email;
+      const filter = { email: email };
+      const result = await cartCollections.find(filter).toArray();
+      res.send(result);
+    });
+
+    //delete items from the cart
+    app.delete("/cart/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await cartCollections.deleteOne(filter);
+      res.send(filter);
+    });
+
+    //get specific product
+    app.get("/carts/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await cartCollections.findOne(filter);
+      console.log("E", result);
       res.send(result);
     });
     // Send a ping to confirm a successful connection

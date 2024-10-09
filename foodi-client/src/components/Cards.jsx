@@ -50,13 +50,13 @@ const Cards = ({ item }) => {
       console.log(cartItem);
     } else {
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "Please Login?",
+        text: "Please create an account or login to add products",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: "Signup Now!",
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/signup", { state: { from: location } });
