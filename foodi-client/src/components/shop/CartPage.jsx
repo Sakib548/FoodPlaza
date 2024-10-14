@@ -7,6 +7,15 @@ const CartPage = () => {
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
 
+  //handleIncrease function
+  const handleIncrease = (item) => {
+    console.log(item._id);
+  };
+  //handleDecrease function
+
+  const handleDecrease = (item) => {
+    console.log(item._id);
+  };
   ///handleDelete btn
 
   const handleDelete = (item) => {
@@ -116,7 +125,28 @@ const CartPage = () => {
                     </div>
                   </td>
                   <td className="font-medium">{item.name}</td>
-                  <td>{item.quantity}</td>
+                  <td>
+                    <button
+                      className="btn btn-xs"
+                      onClick={() => handleDecrease(item)}
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      className="w-10 mx-2 text-center overflow-hidden
+                      appearance-none"
+                      onChange={() => console.log(item.quantity)}
+                    />
+                    <button
+                      className="btn btn-xs"
+                      onClick={() => handleIncrease(item)}
+                    >
+                      +
+                    </button>
+                  </td>
+
                   <td>{item.price}</td>
                   <th>
                     <button
@@ -143,15 +173,20 @@ const CartPage = () => {
         </div>
       </div>
       {/* customer details */}
-      <div className="my-12">
+      <div className="my-12 flex flex-col md:flex-row justify-between items-start">
         <div className="md:w-1/2 space-y-3">
           <h3 className="font-medium">Customer Details</h3>
 
-          <p>Name:{user.displayName}</p>
-          <p>Email:{user.email}</p>
-          <p>User_id:{user.displayName}</p>
+          <p>Name: {user.displayName}</p>
+          <p>Email: {user.email}</p>
+          <p>User_id: {user.uid}</p>
         </div>
-        <div className="md:w-1/2 space-y-3"></div>
+        <div className="md:w-1/2 space-y-3">
+          <h3 className="font-medium">Shopping Details</h3>
+          <p>Total Items: {cart.length}</p>
+          <p>Total Price: $0.00</p>
+          <button className="btn bg-green text-white">Proceed Checkout</button>
+        </div>
       </div>
     </div>
   );
